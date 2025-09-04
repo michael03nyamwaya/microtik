@@ -39,7 +39,7 @@ export default function MikroTikDarajaIntegration() {
         setStatus(`Error: ${data.error}`);
         setIsProcessing(false);
       }
-    } catch (error) {
+    } catch {
       setStatus('Failed to initiate payment. Please try again.');
       setIsProcessing(false);
     }
@@ -72,8 +72,9 @@ export default function MikroTikDarajaIntegration() {
           setStatus('Payment confirmation timeout. Please try again.');
           setIsProcessing(false);
         }
-      } catch (error) {
-        console.error('Error checking payment status:', error);
+      } catch {
+        // Removed unused error parameter
+        console.error('Error checking payment status');
       }
     }, 2000);
   };
@@ -101,7 +102,7 @@ export default function MikroTikDarajaIntegration() {
       } else {
         setStatus(`Error creating account: ${data.error}`);
       }
-    } catch (error) {
+    } catch {
       setStatus('Failed to create user account. Please contact support.');
     } finally {
       setIsProcessing(false);
