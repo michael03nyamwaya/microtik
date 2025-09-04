@@ -1,4 +1,4 @@
-// pages/index.js
+// page/index.js
 'use client'
 import { useState } from 'react';
 import Head from 'next/head';
@@ -17,7 +17,7 @@ export default function MikroTikDarajaIntegration() {
     setStatus('Initiating payment...');
     
     try {
-      const response = await fetch('/api/initiate-payment', {
+      const response = await fetch('/page/api/initiate-payment', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ export default function MikroTikDarajaIntegration() {
       attempts++;
       
       try {
-        const response = await fetch('/api/check-payment', {
+        const response = await fetch('/page/api/check-payment', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -81,7 +81,7 @@ export default function MikroTikDarajaIntegration() {
 
   const createMikroTikUser = async (phone, accessDuration) => {
     try {
-      const response = await fetch('/api/create-user', {
+      const response = await fetch('/page/api/create-user', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
